@@ -30,18 +30,17 @@ let randomGifUrl;
 async function fetchData(){
   setLoading(true);
 const response = await axios.get(endpoint, { params: queryParams })
-// console.log(response)
+console.log(response)
 randomGifUrl = response.data.data.images.downsized_large.url;
 setGif(randomGifUrl);
-setGif2(randomGifUrl);
-setGif3(randomGifUrl);
 
 
 setLoading(false);
 }
 useEffect(() => {
   fetchData();
-}, []);
+  setGif2(()=>fetchData.randomGifUrl)
+}, [setGif,setGif2,setGif3]);
 
   
   return {

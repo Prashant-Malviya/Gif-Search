@@ -2,7 +2,7 @@ import React from 'react'
 import { IoIosStar } from "react-icons/io";
 
 
-function Gif({gif,gif2,gif3}) {
+function Gif3({gif3}) {
 
 
 
@@ -10,7 +10,7 @@ function Gif({gif,gif2,gif3}) {
     <div className='gif-content'>
     <img
     className='gif-image'
-     src={gif} 
+     src={gif3} 
      alt="img"
     
      />
@@ -23,4 +23,4 @@ function Gif({gif,gif2,gif3}) {
   )
 }
 
-export default Gif
+export default Gif3

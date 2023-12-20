@@ -25,8 +25,8 @@ function Search() {
         type="text"
         className='text-search'
         placeholder='Search here'
-        value={tag}
         onChange={(event)=> setTag(event.target.value)}
+        value={tag}
         
          />
       </div>
