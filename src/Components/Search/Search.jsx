@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import useGifSearch from "../../Hooks/useGifSearch";
 import { FaSearch } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
+import Results from "../Results/Results";
+import Spinner from "../../Spinner/Spinner";
+
 
 function Search() {
+
+  const [tag,setTag] = useState('');
+
+  const {loading,gif,gif2,gif3,fetchData} = useGifSearch(tag);
+
   return (
-    <div className='search-module'>
+    <div>
+<div className='search-module'>
       <div className='search-components'>
 
       <div className="search-box">
@@ -15,10 +25,16 @@ function Search() {
         type="text"
         className='text-search'
         placeholder='Search here'
+        value={tag}
+        onChange={(event)=> setTag(event.target.value)}
+        
          />
       </div>
         
-        <button className='search-button'>Search</button>
+        <button 
+        className='search-button'
+        onClick={()=>fetchData()}
+        >Search</button>
       </div>
 
       <div className="tags">
@@ -29,6 +45,13 @@ function Search() {
       </div>
 
     </div>
+    {
+      loading ? (<Spinner/>) : ( <Results gif = {gif} gif2 = {gif2} gif3 = {gif3} />  )
+    }
+    
+
+    </div>
+    
   )
 }
 

@@ -2,12 +2,15 @@ import React from 'react'
 import { IoIosStar } from "react-icons/io";
 
 
-function Gif() {
+function Gif(props) {
+
+
+
   return (
     <div className='gif-content'>
     <img
     className='gif-image'
-     src="https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?cs=srgb&dl=pexels-andre-furtado-1264210.jpg&fm=jpg" 
+     src={props.gif} 
      alt="img"
     
      />
