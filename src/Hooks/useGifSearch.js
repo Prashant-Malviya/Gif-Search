@@ -5,8 +5,8 @@ import React, { useEffect, useState } from "react";
 function useGifSearch(tag) {
 
     const [gif, setGif] = useState("");
-    const [gif2,setGif2] = useState("");
-    const [gif3,setGif3] = useState("");
+    const [title,setTitle] = useState("");
+    const [username,setUsername] = useState("");
     const [loading,setLoading] = useState(false);
 
   // const axios = require('axios');
@@ -25,26 +25,30 @@ const queryParams = {
 };
 
 // Make the API request using axios
-let randomGifUrl;
+let randomGifUrl , gifTitle, gifUsername;
 
 async function fetchData(){
   setLoading(true);
 const response = await axios.get(endpoint, { params: queryParams })
 console.log(response)
 randomGifUrl = response.data.data.images.downsized_large.url;
+gifTitle = response.data.data.title;
+gifUsername = response.data.data.username;
+
+// console.log("printing title : "+gifTitle + " and Username is -> "+ gifUsername)
+
 setGif(randomGifUrl);
-
-
+setTitle(gifTitle);
+setUsername(gifUsername);
 setLoading(false);
 }
 useEffect(() => {
   fetchData();
-  setGif2(()=>fetchData.randomGifUrl)
-}, [setGif,setGif2,setGif3]);
+}, []);
 
   
   return {
-    gif,gif2,gif3,loading,fetchData
+    gif,title,username,loading,fetchData
   };
 }
 

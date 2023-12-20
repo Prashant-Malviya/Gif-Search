@@ -4,13 +4,24 @@ import { FaSearch } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import Results from "../Results/Results";
 import Spinner from "../../Spinner/Spinner";
+import { signOut } from "firebase/auth";
+import { database } from "../../Firebase/Firebase";
+import { useNavigate } from "react-router-dom";
 
 
 function Search() {
 
   const [tag,setTag] = useState('');
+  const history = useNavigate();
 
-  const {loading,gif,gif2,gif3,fetchData} = useGifSearch(tag);
+  const {loading,gif,title,username,fetchData} = useGifSearch(tag);
+
+
+  const handleClick = ()=>{
+    signOut(database).then(val=>{
+      history('/')
+    })
+  }
 
   return (
     <div>
@@ -39,16 +50,21 @@ function Search() {
 
       <div className="tags">
         <div className='tag'>
-          <p className='text-tag'>photography</p>
+          <p className='text-tag'>{tag}</p>
           <MdCancel/>
         </div>
       </div>
 
     </div>
     {
-      loading ? (<Spinner/>) : ( <Results gif = {gif} gif2 = {gif2} gif3 = {gif3} />  )
+      loading ? (<Spinner/>) : ( <Results gif = {gif} title={title} username={username}/>  )
     }
     
+    <button 
+    onClick={handleClick}
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+  Log Out
+</button>
 
     </div>
     
