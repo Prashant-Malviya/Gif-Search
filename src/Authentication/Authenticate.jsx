@@ -44,7 +44,7 @@ function Authenticate() {
    
       <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg">
         <h3 className="text-2xl font-bold text-center">
-          {login ?'SignIn':'SignUp'} to your account
+          {login ?'SignUp':'SignIn'} to your account
         </h3>
         <form onSubmit={(e) => handleSubmit(e,login?'signin':'signup')}>
           <div className="mt-4">
