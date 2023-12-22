@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 function Search() {
 
-  const [tag,setTag] = useState('');
+  const [tag,setTag] = useState('funny');
   const history = useNavigate();
 
   const {loading,gif,title,username,fetchData} = useGifSearch(tag);
@@ -62,7 +62,7 @@ function Search() {
     
     <button 
     onClick={handleClick}
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
   Log Out
 </button>
 

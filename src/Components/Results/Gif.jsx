@@ -4,8 +4,6 @@ import { IoIosStar } from "react-icons/io";
 
 function Gif({gif,title,username}) {
 
-
-
   return (
     <div className='gif-content'>
     <img
