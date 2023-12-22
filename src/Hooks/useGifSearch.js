@@ -6,8 +6,8 @@ function useGifSearch(tag) {
 
     const [gif, setGif] = useState([]);
     const [loading,setLoading] = useState(true);
-    const [title,setTitle] = useState("");
-    const [username,setUsername] = useState("");
+    // const [title,setTitle] = useState("");
+    // const [username,setUsername] = useState("");
 
   // const axios = require('axios');
 
@@ -32,10 +32,12 @@ function fetchData(){
 // const response = await axios(endpoint, { params: queryParams })
 
 axios(
-  `https://api.giphy.com/v1/gifs/search?api_key=f3b8PiHqEC58PxYkUN0KluDjNK6pTufN&q=${tag}&limit=25&offset=0&rating=g&lang=en`
+  `https://api.giphy.com/v1/gifs/search?api_key=GlVGYHkr3WSBnllca54iNt0yFbjz7L65&q=${tag}&limit=3&offset=0&rating=g&lang=en`
 ).then((res) => setGif(res.data.data))
 .catch((error) => console.log("error in api",error))
 .finally(() => setLoading(false));
+console.log("fetcched data clicked")
+// console.log(gif)
 
 // randomGifUrl = response.data.data.images.downsized_large.url;
 // gifTitle = response.data.data.title;
@@ -52,7 +54,7 @@ axios(
 useEffect(() => {
   fetchData();
 }, [tag]);
-
+console.log(gif)
   
   return {
     gif,loading,fetchData

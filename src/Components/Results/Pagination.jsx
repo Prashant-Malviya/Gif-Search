@@ -4,8 +4,13 @@ import Results from './Results';
 import useGifSearch from '../../Hooks/useGifSearch';
 import Search from '../Search/Search';
 
-function Pagination() {
+function Pagination({tag}) {
   const [page,setPage] = useState(1);
+  const {fetchData} = useGifSearch();
+  function handleNextClick(){
+    // fetchData(tag);
+    setPage(page+1)
+  }
 
   return (
     <div className='numbers'>
@@ -17,7 +22,7 @@ function Pagination() {
       <p className='font-bold'>{page}</p>
       {/* <p>2</p>
       <p>3</p> */}
-      <button className='btn border' onClick={()=>setPage(page+1)}>Next</button>
+      <button className='btn border' onClick={handleNextClick}>Next</button>
     </div>
   )
 }

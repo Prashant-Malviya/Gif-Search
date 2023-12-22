@@ -152,6 +152,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 20.762px;
+    /* padding:auto; */
     /* 125% */
 }
 
@@ -165,6 +166,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 13.841px;
+    /* padding:auto; */
     /* 125% */
 }
 

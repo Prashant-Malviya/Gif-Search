@@ -6,12 +6,12 @@ import useGifSearch from '../../Hooks/useGifSearch';
 function Results({tag}) {
 
     const {gif} = useGifSearch(tag);
-    const [title,setTitle] = useState("");
-    const [username,setUsername] = useState("");
-    let i=1;
-    console.log(gif)
-     
-      
+    // const [title,setTitle] = useState("");
+    // const [username,setUsername] = useState("");
+
+    // console.log(gif)
+    
+    
     
 
   return (
@@ -27,7 +27,7 @@ function Results({tag}) {
     </div>
     
     <div className="pagination py-6">
-      <Pagination/>
+      <Pagination tag={tag}/>
     </div>
       
     </div>
